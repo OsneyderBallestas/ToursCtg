@@ -1,0 +1,239 @@
+:root {
+    /* Colores */
+    --color-azul1: #005D89;
+    --color-azul2: #01A0E1;
+    --color-azul3: #E0F3F9;
+    --color-gris-claro: #f5f5f5;
+    --color-amarillo: #FEC400;
+    --color-amarillo-claro: #FFE783;
+  
+    /* Tipografías */
+    --fuente-montserrat: "Montserrat", sans-serif;
+    --fuente-caveat: "Caveat Brush", cursive;
+}
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.6rem; /* 1.6rem = 16px */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.encabezado {
+    background-color: var(--color-azul1);
+    color: white;
+    padding: 1rem 0;
+}
+
+.encabezado .contenedor {
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.logo {
+    width: 10rem;
+    height: auto;
+}
+
+.navegacion ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.navegacion a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Estilo del main */
+.fondo {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('img/fondo-main.jpg') no-repeat center center/cover; /* Imagen de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Capa semioscura separada */
+.capa-oscura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Estilo del contenido */
+.contenido {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+}
+
+.contenido h1 {
+    font-family: var(--fuente-caveat);
+    font-size: 8rem;
+    margin-bottom: 1rem;
+}
+
+.contenido p {
+    font-family: var(--fuente-montserrat);
+    font-size: 2rem;
+}
+
+/*  Sección Nuestros Tours */
+
+.intro-tours {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 800px;
+    margin: auto;
+    color: var(--color-azul1);
+}
+
+.intro-tours h2 {
+    font-family: var(--fuente-caveat);
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: var(--color-azul2);
+}
+
+.intro-tours p {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.6rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+.lista-tours {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin-bottom: 10rem;
+}
+
+.tour {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.tour:hover {
+    transform: translateY(-5px);
+}
+
+.tour img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tour h3 {
+    font-family: var(--fuente-caveat);
+    font-size: 3rem;
+    color: var(--color-azul1);
+    margin: 1rem 0;
+}
+
+.tour p {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.4rem;
+    padding: 0 1rem;
+    color: #666;
+}
+
+.tour .boton {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background: var(--color-azul2);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.tour .boton:hover {
+    background: var(--color-azul1);
+}
+
+
+/* Sección Nosotros */
+.nosotros {
+    padding: 4rem 2rem;
+    background-color: var(--color-gris-claro);
+}
+
+.contenedor-nosotros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+}
+
+.texto-nosotros {
+    flex: 1;
+    text-align: left;
+}
+
+.texto-nosotros h2 {
+    font-size: 2.8rem;
+    color: var(--color-azul1);
+    margin-bottom: 1rem;
+}
+
+.texto-nosotros p {
+    font-size: 1.6rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.imagen-nosotros {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-nosotros img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
