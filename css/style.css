@@ -1,0 +1,1175 @@
+:root {
+    /* Colores */
+    --color-azul1: #005D89;
+    --color-azul2: #01A0E1;
+    --color-azul3: #E0F3F9;
+    --color-gris-claro: #f5f5f5;
+    --color-amarillo: #FEC400;
+    --color-amarillo-claro: #FFE783;
+    --color-fondo: #F2F3F3;
+  
+    /* Tipografías */
+    --fuente-montserrat: "Montserrat", sans-serif;
+    --fuente-parkinsans: "Parkinsans", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.6rem; /* 1.6rem = 16px */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+}
+
+
+/* Oculta el header y el menú desplegable en dispositivos grandes */
+.header-movil {
+  display: none;
+}
+
+.menu-desplegable-movil {
+  display: none;
+}
+
+/* Mostrar solo en pantallas de 768px o menos (móviles) */
+@media (max-width: 768px) {
+
+  .header {
+    display: none;
+  }
+  /* Estilos del header en móviles */
+  .header-movil {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      background-color: var(--color-fondo);
+      position: fixed;
+      top: -2px;
+      left: 0;
+      width: 100%;
+      z-index: 900;
+      transform: translateY(0); /* Por defecto, visible */
+      transition: transform 0.8s ease-in-out;
+
+  }
+
+  .logo-movil img {
+      width: 80px;
+      height: auto;
+  }
+
+  /* Icono del menú hamburguesa en móviles */
+  .menu-icon-movil i {
+      font-size: 30px;
+      color: var(--color-azul1);
+      cursor: pointer;
+  }
+
+  /* Menú desplegable para móvil */
+  .menu-desplegable-movil {
+      position: fixed;
+      top: 0;
+      right: -100%; /* Inicialmente fuera de la pantalla */
+      height: 100%;
+      width: 250px;
+      background-color: var(--color-azul1);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000; /* Asegura que el menú esté sobre otros elementos */
+  }
+
+  .menu-desplegable-movil ul {
+      list-style: none;
+      padding: 0;
+  }
+
+  .menu-desplegable-movil ul li {
+      margin: 20px 0; /* Espaciado vertical entre ítems del menú */
+  }
+
+  .menu-desplegable-movil ul li a {
+      color: white;
+      font-size: 18px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+  }
+
+  .menu-desplegable-movil ul li a i {
+      margin-right: 10px; /* Espaciado entre ícono y texto */
+  }
+
+  /* Estado cuando el menú está activo (visible) */
+  .menu-desplegable-movil.active {
+      right: 0;
+  }
+
+  /* Ícono de cerrar el menú en móviles */
+  .close-icon-movil {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: var(--color-fondo);
+  }
+
+  /* Capa de fondo oscuro semi-transparente cuando el menú está activo */
+  .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 950;
+      display: none;
+  }
+
+  /* Mostrar la capa de fondo cuando el menú está activo */
+  .menu-desplegable-movil.active ~ .overlay {
+      display: block;
+  }
+
+}
+
+
+/* Inicio del header escritorio y menú */
+.header {
+padding: 2rem 0;
+background-color: var(--color-fondo);
+position: sticky;
+top: 0;
+z-index: 1000;
+transition: all 0.6s ease-in-out;
+}
+
+.header .contenedor {
+margin: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 3rem;
+flex-wrap: wrap;
+}
+
+/* Navegación (alineada a la izquierda) */
+.navegacion {
+flex: 1;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.navegacion ul {
+list-style: none;
+display: flex;
+gap: 2rem;
+margin: 0;
+padding: 0;
+}
+
+.navegacion a {
+text-decoration: none;
+color: var(--color-azul1);
+font-family: var(--fuente-montserrat);
+font-weight: 400;
+font-size: 1.6rem;
+}
+
+/* Logo (centrado en la pantalla) */
+.logo {
+position: absolute;
+left: 50%; /* Mover al centro horizontal */
+transform: translateX(-50%); /* Ajustar el desplazamiento para centrar */
+width: 10rem;
+height: auto;
+padding-top: 1rem;
+padding-bottom: 1rem;
+}
+
+/* Login (alineado a la derecha) */
+.login {
+display: flex;
+align-items: center;
+margin-right: 1rem;
+}
+
+.login a {
+text-decoration: none;
+color: var(--color-azul1);
+display: flex;
+align-items: center;
+font-family: var(--fuente-montserrat);
+font-weight: 400;
+font-size: 1.6rem;
+}
+
+.login i {
+margin-right: 0.6rem; /* Espaciado entre el ícono y el texto */
+}
+
+/* Botón de contacto (a la derecha del login) */
+.contacto-header {
+display: flex;
+align-items: center;
+}
+
+.contacto-header a {
+text-decoration: none;
+color: var(--color-azul1);
+font-family: var(--fuente-montserrat);
+font-weight: 400;
+font-size: 1.6rem;
+padding: 0.5rem 1rem;
+border-radius: 2.5rem;
+border: 1px solid var(--color-azul1);
+margin-left: 1rem; /* Espaciado a la izquierda del login */
+}
+
+
+
+/* Cambios cuando se hace scroll */
+.header.scrolled {
+background: #f2f3f3; /* Fondo semi-transparente */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+padding: 1.5rem 6rem;
+}
+
+
+/* Responsive monitor 27pulg menu header */
+@media screen and (min-width: 1920px) {
+  .header {
+    padding: 3rem 14rem;
+  }
+  
+}
+
+/* Fin del header y menú escritorio */
+
+
+/* Estilo del main */
+.fondo {
+  position: relative;
+  width: calc(100% - 6rem); /* Reduce el ancho en 6rem a cada lado */
+  height: 90vh;
+  background: url('../img/fondo-main.jpg') no-repeat center center/cover; /* Imagen de fondo */
+  margin: auto; /* Centra el contenedor en la página */
+  overflow: hidden;
+  border-radius: 2.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 4rem;
+}
+
+
+/* Capa oscura */
+.capa-oscura {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Estilo del contenido */
+.contenido {
+  z-index: 2;
+  text-align: left;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.contenido h1 {
+  font-family: var(--fuente-parkinsans);
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--color-amarillo);
+  margin: 0;
+  padding: 0 0 1rem 0;
+}
+
+.contenido p {
+  font-family: var(--fuente-montserrat);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-azul3);
+  margin: 0;
+  padding: 0 0 3rem 0;
+}
+
+.explorar-tours {
+  margin: 0 0 2rem 0;
+}
+
+.explorar-tours a {
+  text-decoration: none;
+  color: var(--color-azul1);
+  font-family: var(--fuente-montserrat);
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 0.8rem 1.6rem;
+  background-color: var(--color-amarillo);
+  border-radius: 2.5rem;
+  text-shadow: none;
+}
+
+
+@media (max-width: 768px) {
+  .fondo {
+    width: calc(100% - 2rem);
+    margin-top: 10rem;
+    padding: 2rem;
+  }
+
+  .contenido h1 {
+    font-size: 3rem;
+  }
+
+  .contenido br {
+    display: none;
+  }
+}
+
+
+
+/* seccion precios especiales */
+
+.seccion-descuentos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.seccion-descuentos h2 {
+  font-family: var(--fuente-parkinsans);
+  font-weight: 600;
+  font-size: 4rem;
+  color: var(--color-azul1);
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.seccion-descuentos p {
+  font-family: var(--fuente-montserrat);
+  font-weight: 400;
+  font-size: 1.7rem;
+  color: var(--color-azul1);
+  margin-top: 0;
+  text-align: center;
+}
+
+
+@media (max-width: 768px) {
+
+  .seccion-descuentos {
+    padding: 0 2rem;
+    margin-top: 2rem;
+  }
+  .seccion-descuentos h2 {
+    font-size: 3rem;
+    line-height: 1.3;
+  }
+
+  .seccion-descuentos p {
+    margin-top: 1rem;
+  }
+
+  .seccion-descuentos br {
+    display: none;
+  }
+}
+
+/* tarjetas promo tours */
+
+.contenedor-promo-tours {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.promo-tour {
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: flex-end; /* Para que el contenido esté en la parte inferior */
+  text-align: left;
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.promo-tour::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.tarjeta1 {
+  grid-column: span 2 / span 2;
+  grid-row: span 4 / span 4;
+  background-image: url('../img/ciudad-amurrallada.jpg');
+  border-radius: 2.5rem;
+}
+
+.tarjeta2 {
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  background-image: url('../img/mercado.jpg');
+  border-radius: 2.5rem;
+}
+
+.tarjeta3 {
+  grid-row: span 2 / span 2;
+  grid-column-start: 4;
+  background-image: url('../img/playa.jpg');
+  border-radius: 2.5rem;
+}
+
+.tarjeta4 {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 3;
+  background-image: url('../img/volcan.jpg');
+  border-radius: 2.5rem;
+}
+
+.info-promo {
+  position: relative;
+  z-index: 2;
+  padding: 10rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.info-promo h3 {
+  font-family: var(--fuente-parkinsans);
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.info-promo .precio-promo {
+  font-family: var(--fuente-montserrat);
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 5px 0;
+  color: var(--color-amarillo);
+}
+
+.info-promo p {
+  font-family: var(--fuente-montserrat);
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin: 5px 0;
+}
+
+.btn-reservar-promo {
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--color-amarillo);
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: var(--fuente-montserrat);
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.btn-reservar-promo:hover {
+  background-color: #ffa000;
+}
+
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+
+  .contenedor-promo-tours {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .promo-tour {
+    flex: none;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .promo-tour .info-promo {
+    padding: 1rem;
+  }
+
+  .promo-tour h3 {
+    font-size: 1.8rem;
+  }
+
+  .promo-tour .precio-promo {
+    font-size: 1.6rem;
+  }
+
+  .promo-tour p {
+    font-size: 1.6rem;
+  }
+
+  .btn-reservar-promo {
+    font-size: 1.4rem;
+    padding: 10px 20px;
+  }
+
+  /* Forzar mismo tamaño para las imágenes de fondo */
+  .tarjeta1, .tarjeta2, .tarjeta3, .tarjeta4 {
+    min-height: 200px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* Todos los tours */
+
+.intro-tours {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-tours h2 {
+  font-family: var(--fuente-parkinsans);
+  font-weight: 600;
+  font-size: 4rem;
+  color: var(--color-azul1);
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.intro-tours p {
+  font-family: var(--fuente-montserrat);
+  font-weight: 400;
+  font-size: 1.7rem;
+  color: var(--color-azul1);
+  margin-top: 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+
+  .intro-tours {
+    padding: 0 1rem;
+    margin-top: 2rem;
+  }
+  .intro-tours h2 {
+    font-size: 3rem;
+    line-height: 1.3;
+  }
+
+  .intro-tours br {
+    display: none;
+  }
+
+  .intro-tours p {
+    margin-top: 1rem;
+  }
+}
+
+
+/* Categorías */
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 20px 0;
+}
+
+.category-button {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-azul1);
+  color: white;
+  border: none;
+  border-radius: 3rem;
+  padding: 9px 20px 9px 9px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  gap: 1rem;
+  font-family: var(--fuente-montserrat);
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+
+.category-button:hover {
+  background-color: #003d80;
+}
+
+.category-button.active {
+  background-color: #003d80;
+  font-weight: 500;
+  cursor: default;
+}
+
+.icon-wrapper {
+  background-color: #ffc107;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+
+  .categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .category-button {
+    font-size: 1.3rem;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    gap: 0.7rem;
+  }
+
+  .icon-wrapper {
+    width: 35px;
+    height: 35px;
+  }
+
+  .button-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+
+  /* Contenedor de Tours */
+.tours-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .tour-card {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .tour-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .tour-details {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 280px;
+    background-color: rgba(255, 255, 255, 0.854);
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .tour-details h3 {
+    font-family: var(--fuente-parkinsans);
+    font-size: 1.6rem;
+    color: var(--color-azul1);
+    margin: 0 0 10px;
+  }
+  
+  .tour-details p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: var(--color-azul1);
+  }
+  
+  .tour-price {
+    font-family: var(--fuente-parkinsans);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-azul1);
+    margin-right: 2rem;
+  }
+  
+
+  /* Botón de reserva */
+  .reserve-button {
+    display: inline-block;
+    background-color: var(--color-amarillo);
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .reserve-button:hover {
+    color: var(--color-azul1);
+  }
+  
+
+  /* seccion nosotros */
+
+  .contenedor-nosotros {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 3rem;
+    align-items: start;
+    margin: 4rem 0 4rem 0;
+  }
+  
+
+.titulo-nosotros h2 {
+  font-family: var(--fuente-parkinsans);
+  font-weight: 600;
+  font-size: 4rem;
+  color: var(--color-azul1);
+  margin: 0;
+}
+
+.descripcion-nosotros p{
+  font-family: var(--fuente-montserrat);
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: var(--color-azul1);
+}
+
+
+
+@media (max-width: 768px) {
+  .contenedor-nosotros {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contenedor-nosotros br {
+    display: none;
+  } 
+  
+  .titulo-nosotros h2 {
+    font-size: 3rem;
+    line-height: 1.3;
+  }
+
+  .descripcion-nosotros p {
+    margin-top: 1.5rem;
+  }
+}
+
+.contenedor-estadisticas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  margin-bottom: 9rem;
+}
+
+.tarjeta-estadisticas {
+  background-color: var(--color-azul1);
+  border-radius: 15px;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  width: 400px;
+  height: 170px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-estadisticas:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.icono-estadisticas img {
+  width: 70px;
+  height: 70px;
+}
+
+.contenido-estadisticas h3 {
+  font-family: var(--fuente-parkinsans);
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-amarillo);
+  margin: 0.5rem 0;
+}
+
+.contenido-estadisticas p {
+  font-family: var(--fuente-montserrat);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-gris-claro);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+
+  .contenedor-estadisticas {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    gap: 1.5rem;
+    margin-bottom: 6rem;
+  }
+
+  .tarjeta-estadisticas {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icono-estadisticas img {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+  }
+
+  .contenido-estadisticas h3 {
+    font-size: 2.5rem;
+    margin: 0;
+    text-align: center;
+  }
+
+  .contenido-estadisticas p {
+    font-size: 1.4rem;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+}
+
+/* video */
+
+.video-container {
+  position: relative;
+  width: calc(100% - 6rem);
+  height: 600px;
+  background-image: url('../img/fondo-video.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 2.5rem;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.overlay-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-icon {
+  font-size: 80px;
+  color: var(--color-amarillo);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.play-icon:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    width: calc(100% - 4rem);
+  }
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+
+.modal-content {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.close {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  color: white;
+  background: red;
+  border: none;
+  padding: 5px 10px 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 1200;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.close:hover {
+  background-color: darkred;
+  transform: scale(1.1);
+}
+
+/* Footer */
+
+footer {
+  padding: 10rem 3rem 0 3rem;
+  color: var(--color-azul1);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 4rem;
+}
+
+.footer-logo {
+  width: 150px;
+}
+
+.footer-column h4 {
+  font-family: var(--fuente-parkinsans);
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-azul1);
+}
+
+.footer-column p, .footer-column ul {
+  font-family: var(--fuente-parkinsans);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: var(--color-azul1);
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: var(--color-azul1);
+}
+
+/* Estilos generales para el formulario */
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-azul1);
+}
+
+.input-wrapper i {
+  position: absolute;
+  color: var(--color-azul1);
+  font-size: 1.6rem;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+  font-family: var(--fuente-montserrat);
+  font-weight: 400;
+  font-size: 1.4rem;
+  border: none;
+  outline: none;
+  color: var(--color-azul1);
+  background: none;
+}
+
+.input-wrapper input::placeholder {
+  color: var(--color-azul1);
+}
+
+/* Estilos para la casilla de verificación y el texto de la política */
+.policy-wrapper {
+  font-family: var(--fuente-montserrat);
+  font-size: 1.1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.policy-wrapper input {
+  margin-top: 0.2rem;
+}
+
+.policy-wrapper label a {
+  font-family: var(--fuente-montserrat);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-azul1);
+  text-decoration: none;
+}
+
+.policy-wrapper label a:hover {
+  text-decoration: underline;
+}
+
+.subscribe-btn {
+  background-color: var(--color-amarillo);
+  color: var(--color-azul1);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-family: var(--fuente-montserrat);
+  font-size: 1.6rem;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: auto;
+  text-align: center;
+}
+
+.subscribe-btn:hover {
+  background-color: #ffc107;
+}
+
+
+.footer-bottom {
+  text-align: center;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--color-azul1);
+  margin-top: 2rem;
+  font-family: var(--fuente-montserrat);
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: var(--color-azul1);
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 8rem 2rem 0 2rem;
+  }
+
+  .footer-column {
+    margin-bottom: 0;
+  }
+
+  .footer-column h4 {
+    margin: 0;
+  }
+}

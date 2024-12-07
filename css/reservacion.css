@@ -1,0 +1,145 @@
+:root {
+    /* Colores */
+    --color-azul1: #005D89;
+    --color-azul2: #01A0E1;
+    --color-azul3: #E0F3F9;
+    --color-gris-claro: #f5f5f5;
+    --color-amarillo: #FEC400;
+    --color-amarillo-claro: #FFE783;
+    --color-fondo: #F2F3F3;
+  
+    /* Tipografías */
+    --fuente-montserrat: "Montserrat", sans-serif;
+    --fuente-parkinsans: "Parkinsans", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.6rem; /* 1.6rem = 16px */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FEC400, #005D89, #005D89);
+    color: #fff;
+}
+
+
+.container {
+    max-width: 600px;
+    margin: 5rem auto;
+    margin-bottom: 15rem;
+    padding: 30px;
+    background: var(--color-fondo);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: var(--fuente-parkinsans);
+    font-weight: 600;
+    font-size: 2.8rem;
+    text-align: center;
+    color: var(--color-azul1);
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--color-azul1);
+    font-family: var(--fuente-montserrat);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+/* Información del tour */
+.tour-info {
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.tour-info p {
+    font-family: var(--fuente-montserrat);
+    margin: 5px 0;
+}
+
+/* Estilos del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-family: var(--fuente-parkinsans);
+    font-weight: 500;
+    font-size: 1.7rem;
+    margin: 10px 0 5px;
+    color: var(--color-azul1);
+}
+
+input, button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--fuente-montserrat);
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: var(--color-azul1);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    background-color: var(--color-azul1);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Quitar las flechas de los campos de tipo number */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Para navegadores Firefox */
+    appearance: textfield;      /* Para navegadores modernos */
+}
+
+
+/* Diseño responsivo */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

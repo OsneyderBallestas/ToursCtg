@@ -1,0 +1,176 @@
+:root {
+    /* Colores */
+    --color-azul1: #005D89;
+    --color-azul2: #01A0E1;
+    --color-azul3: #E0F3F9;
+    --color-gris-claro: #f5f5f5;
+    --color-amarillo: #FEC400;
+    --color-amarillo-claro: #FFE783;
+    --color-fondo: #F2F3F3;
+  
+    /* Tipografías */
+    --fuente-montserrat: "Montserrat", sans-serif;
+    --fuente-parkinsans: "Parkinsans", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.6rem; /* 1.6rem = 16px */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+}
+
+
+.volver-admin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.volver-admin a {
+  text-decoration: none;
+  color: var(--color-azul1);
+  font-family: var(--fuente-montserrat);
+  font-weight: 500;
+  font-size: 1.7rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2.5rem;
+  border: 1px solid var(--color-azul1);
+  margin-left: 1rem;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 35px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 10rem;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: var(--fuente-parkinsans);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--color-azul1);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.4rem;
+    background: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-azul1);
+    background: #fff;
+}
+
+/* Drop Zone */
+#drop-zone {
+    width: 100%;
+    border: 2px dashed var(--color-azul1);
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#drop-zone p {
+    margin: 0;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.4rem;
+    color: #555;
+}
+
+#drop-zone:hover {
+    background-color: #e6f0ff;
+}
+
+/* Hidden file input */
+#drop-zone input {
+    display: none;
+}
+
+/* Textarea */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: var(--color-azul1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--fuente-montserrat);
+    font-weight: 500;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+
+#preview-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#image-preview {
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 15px;
+    }
+}
