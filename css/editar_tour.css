@@ -1,0 +1,228 @@
+:root {
+    /* Colores */
+    --color-azul1: #005D89;
+    --color-azul2: #01A0E1;
+    --color-azul3: #E0F3F9;
+    --color-gris-claro: #f5f5f5;
+    --color-amarillo: #FEC400;
+    --color-amarillo-claro: #FFE783;
+    --color-fondo: #F2F3F3;
+    --color-exito: #28a745;
+    --color-error: #dc3545;
+
+    /* Tipografías */
+    --fuente-principal: "Montserrat", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: var(--fuente-principal);
+    font-size: 1.6rem; /* 16px */
+    background-color: var(--color-fondo);
+    color: var(--color-azul1);
+}
+
+.volver-admin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  
+  .volver-admin a {
+    text-decoration: none;
+    color: var(--color-azul1);
+    font-family: var(--fuente-montserrat);
+    font-weight: 500;
+    font-size: 1.7rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2.5rem;
+    border: 1px solid var(--color-azul1);
+    margin-left: 1rem;
+  }
+  
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease;
+    margin: 0 auto;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2 {
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-azul1);
+    margin-bottom: 2rem;
+}
+
+.msg-exito {
+    background: #d4edda;
+    padding: 1rem;
+    text-align: center;
+    color: #155724;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    border: 1px solid #c3e6cb;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--color-azul1);
+    font-size: 1.4rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: var(--fuente-principal);
+    color: #333;
+    background: #fafafa;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--color-azul2);
+    box-shadow: 0 0 5px rgba(1,160,225,0.2);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.image-section {
+    margin: 3rem 0;
+}
+
+.image-drop-area {
+    background: #fafafa;
+    border: 2px dashed #ccc;
+    border-radius: 1rem;
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.image-drop-area:hover {
+    background: #f0fbff;
+}
+
+.image-drop-area.dragover {
+    background: #e0f7fa;
+    border-color: #00acc1;
+}
+
+.image-drop-area img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem auto;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+.image-name {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.btn-select {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--color-azul2);
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+    font-size: 1.4rem;
+}
+
+.btn-select:hover {
+    background: #0086b3;
+}
+
+.btn-guardar {
+    display: block;
+    margin: 3rem auto 0;
+    background: var(--color-exito);
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-guardar:hover {
+    background: #218838;
+}
+
+.drag-text {
+    font-size: 1.3rem;
+    color: #999;
+    margin-top: 1rem;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Ajustes a la disposición del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+}

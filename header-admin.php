@@ -26,6 +26,14 @@
             <a href="index.php" class="logo">
                 <img src="img/logo-azul.svg" alt="Logotipo">
             </a>
+
+            <div class="login">
+              <a href="admin.php">
+              <i class="bi bi-database"></i>
+                  Panel Admin
+              </a>
+            </div>
+
             <div class="login">
               <a href="cerrar_sesion.php">
                   <i class="bi bi-box-arrow-in-left"></i>

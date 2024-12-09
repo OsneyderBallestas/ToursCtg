@@ -1,0 +1,170 @@
+:root {
+    /* Colores */
+    --color-azul1: #005D89;
+    --color-azul2: #01A0E1;
+    --color-azul3: #E0F3F9;
+    --color-gris-claro: #f5f5f5;
+    --color-amarillo: #FEC400;
+    --color-amarillo-claro: #FFE783;
+    --color-fondo: #F2F3F3;
+
+    /* Tipografías */
+    --fuente-montserrat: "Montserrat", sans-serif;
+    --fuente-parkinsans: "Parkinsans", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.6rem; /* 1.6rem = 16px */
+    background-color: var(--color-fondo);
+    color: var(--color-azul1);
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.tour-detail-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Banner del tour */
+.tour-banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo con transparencia */
+    overflow: hidden;
+}
+
+.tour-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7; /* Ajustar opacidad de la imagen */
+    filter: brightness(0.8); /* Reduce un poco el brillo */
+    z-index: 1;
+}
+
+.tour-banner h1 {
+    position: relative;
+    font-family: var(--fuente-parkinsans);
+    font-size: 3.5rem;
+    color: white;
+    z-index: 2; /* Asegura que el texto esté por encima */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+
+/* Títulos */
+.tour-detail-container h2 {
+    font-family: var(--fuente-parkinsans);
+    font-size: 2.4rem;
+    color: var(--color-azul2);
+    margin-bottom: 1rem;
+    border-left: 5px solid var(--color-amarillo);
+    padding-left: 1rem;
+}
+
+/* Párrafos */
+.tour-detail-container p {
+    font-size: 1.8rem;
+    color: var(--color-azul1);
+    margin-bottom: 2rem;
+}
+
+/* Listas */
+.tour-detail-container ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.tour-detail-container ul li {
+    font-size: 1.8rem;
+    color: var(--color-azul1);
+    background-color: var(--color-azul3);
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón de reservar */
+.reserve-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    background-color: var(--color-amarillo);
+    color: white;
+    font-family: var(--fuente-parkinsans);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.reserve-button:hover {
+    background-color: var(--color-amarillo-claro);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    color: var(--color-azul1);
+    transform: translateY(-2px);
+}
+
+/* Destacar precio */
+.tour-detail-container p strong {
+    color: var(--color-amarillo);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Respuesta a pantallas más pequeñas */
+@media (max-width: 768px) {
+    .tour-banner {
+        height: 200px;
+    }
+
+    .tour-banner h1 {
+        font-size: 2.5rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .tour-detail-container {
+        padding: 1.5rem;
+    }
+
+    .reserve-button {
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+    }
+}

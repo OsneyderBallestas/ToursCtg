@@ -206,7 +206,7 @@ padding-bottom: 1rem;
 .login {
 display: flex;
 align-items: center;
-margin-right: 1rem;
+margin-right: 2rem;
 }
 
 .login a {
@@ -407,6 +407,28 @@ padding: 1.5rem 6rem;
   padding: 3rem;
 }
 
+/* Estilo del círculo amarillo */
+.cursor-circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-amarillo);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--fuente-parkinsans);
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 5;
+}
+
+
 .promo-tour {
   position: relative;
   color: white;
@@ -417,6 +439,7 @@ padding: 1.5rem 6rem;
   background-position: center;
   padding: 1rem;
   overflow: hidden;
+  cursor: none;
 }
 
 .promo-tour::before {
@@ -509,6 +532,15 @@ padding: 1.5rem 6rem;
 
 .btn-reservar-promo:hover {
   background-color: #ffa000;
+}
+
+.promo-tour:hover .cursor-circle {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1); 
+}
+
+.btn-reservar-promo:hover + .cursor-circle {
+  opacity: 0; /* Oculta el círculo al pasar sobre el botón */
 }
 
 
@@ -702,6 +734,7 @@ padding: 1.5rem 6rem;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    cursor: none;
   }
   
   .tour-card:hover {
@@ -769,6 +802,50 @@ padding: 1.5rem 6rem;
     color: var(--color-azul1);
   }
   
+
+
+/* Círculo amarillo con texto "Ver" */
+.cursor-circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-amarillo);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--fuente-parkinsans);
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 5;
+}
+
+/* Mostrar el círculo al pasar el cursor sobre la tarjeta */
+.tour-card:hover .cursor-circle {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Ocultar el círculo cuando el cursor está sobre el botón de "Reservar" */
+.reserve-button:hover + .cursor-circle {
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
 
   /* seccion nosotros */
 

@@ -132,7 +132,7 @@ $categorias = $resultCategorias->fetch_all(MYSQLI_ASSOC);
                         </button>
 
                         <!-- Botón Editar -->
-                        <a href="admin.php?edit_id=<?= $tour['id'] ?>" class="btn-edit">Editar</a>
+                        <a href="editar_tour.php?id=<?= $tour['id'] ?>" class="btn-edit">Editar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

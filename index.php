@@ -71,7 +71,7 @@
             <h1>Explora Cartagena con Nosotros</h1>
             <p>Adéntrate en la belleza de Cartagena con experiencias diseñadas para <br> conectar, sorprender y enamorar.</p>
             <div class="explorar-tours">
-              <a href="">Explorar Tours</a>
+              <a href="#tours">Explorar Tours</a>
             </div>
         </div>
     </main>
@@ -84,7 +84,8 @@
 
 
     <div class="contenedor-promo-tours">
-    <div class="tarjeta1 promo-tour">
+    <div class="tarjeta1 promo-tour" data-link="ciudad-amurallada.php">
+        <div class="cursor-circle"><p>Ver</p></div>
         <div class="info-promo">
             <p class="precio-promo">$500,000 COP/pers.</p>
             <h3>Ciudad Amurallada</h3>
@@ -92,7 +93,8 @@
             <a href="reservacion.php?tour_id=1" class="btn-reservar-promo">Reservar</a>
         </div>
     </div>
-    <div class="tarjeta2 promo-tour">
+    <div class="tarjeta2 promo-tour" data-link="mercado-bazurto.php">
+        <div class="cursor-circle"><p>Ver</p></div>
         <div class="info-promo">
             <p class="precio-promo">$250,000 COP/pers.</p>
             <h3>Mercado de Bazurto</h3>
@@ -100,7 +102,8 @@
             <a href="reservacion.php?tour_id=10" class="btn-reservar-promo">Reservar</a>
         </div>
     </div>
-    <div class="tarjeta3 promo-tour">
+    <div class="tarjeta3 promo-tour" data-link="playa-blanca.php">
+        <div class="cursor-circle"><p>Ver</p></div>
         <div class="info-promo">
             <p class="precio-promo">$300,000 COP/pers.</p>
             <h3>Playa Blanca</h3>
@@ -108,7 +111,8 @@
             <a href="reservacion.php?tour_id=19" class="btn-reservar-promo">Reservar</a>
         </div>
     </div>
-    <div class="tarjeta4 promo-tour">
+    <div class="tarjeta4 promo-tour" data-link="volcan-totumo.php">
+        <div class="cursor-circle"><p>Ver</p></div>
         <div class="info-promo">
             <p class="precio-promo">$200,000 COP/pers.</p>
             <h3>Volcán del Totumo</h3>
@@ -167,13 +171,20 @@
   </button>
 </div>
 
-  <!-- TARJETAS DE TODOS LOS TOURS -->
+  
+
+
+
+
+
+<!-- TARJETAS DE TODOS LOS TOURS -->
 <div class="tours-container">
   <?php
   include 'db.php';
   $tours = $conn->query("SELECT * FROM tours WHERE estado = 1");
   while ($tour = $tours->fetch_assoc()): ?>
-    <div class="tour-card" data-category-id="<?= $tour['categoria_id']; ?>">
+    <div class="tour-card" data-category-id="<?= $tour['categoria_id']; ?>" onclick="location.href='detalle_tour.php?tour_id=<?= $tour['id']; ?>'">
+      <div class="cursor-circle"><p>Ver</p></div>
       <img src="<?= $tour['imagen']; ?>" alt="<?= $tour['titulo']; ?>" class="tour-image">
       <div class="tour-details">
         <h3><?= $tour['titulo']; ?></h3>
@@ -181,12 +192,22 @@
         <div class="tour-footer">
           <span class="tour-price">$<?= number_format($tour['precio'], 0, ',', '.'); ?> COP</span>
           <!-- Botón de reserva -->
-          <a href="reservacion.php?tour_id=<?= $tour['id']; ?>" class="reserve-button">Reservar</a>
+          <a href="reservacion.php?tour_id=<?= $tour['id']; ?>" class="reserve-button" onclick="event.stopPropagation();">Reservar</a>
         </div>
       </div>
     </div>
   <?php endwhile; ?>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- seccion 4 Nosotros -->
@@ -301,5 +322,7 @@
     <script src="js/stickyMenu.js"></script>
     <script src="js/script.js"></script>
     <script src="js/video.js"></script>
+    <script src="js/circulo-tarjeta.js"></script>
+    <script src="js/tour-interactions.js"></script>
 </body>
 </html>
